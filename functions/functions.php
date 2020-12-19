@@ -1,36 +1,37 @@
 <?php
-require "../database/database.php ";  
+DEFINE("ROOT_URL" ,"index.php" );
+require ("database/database.php");     
 $title = $_POST['title'];
-$post_content = $_POST['post_content'];
-$title .= $_POST['title'];
-$post_content .=    $_POST['post_content'];
-function insert($title,$post_content){
+$content =    $_POST['post_content'];
+
     if(isset($_POST['submit'])){
-        if(!empty($title) && !empty($post_content)){
-                return true;
-            }else{
-                return false;
-            }
-            
-    $query="INSERT INTO posts(post_title , post_description) VALUES('$title','$post_content')"; 
-    $sql = mysqli_query("$conn","$query");
+        if(!empty($title) && !empty($content)){
+               
+           $query = "INSERT INTO posts(post_title , post) VALUES('$title','$content')"; 
+        
+    $sql = mysqli_query($conn,$query);
     if($sql){
         //success
-        echo "<h3>sucessful upload</h3> <br>";
+        echo '<h3 class="alert-success" style="background: transparent;">sucessful upload</h3> <br>';
+        header("location: index.php");
         return true;
     }else{
         //not saved
-        echo "<h3>system failure</h3>";
-
+        echo '<h1 class="alert-danger" >system failure</h1>';
         return false;
     }
     }else{
         //do nothing
     }
+                return true;
+            }else{
+                return false;
+            }
+            
    
-        
-}  
+   
+      
 
-insert($title,$post_content);
+
 
 ?>

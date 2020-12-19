@@ -5,10 +5,10 @@ DEFINE ("DBUSER","root");
 DEFINE ("DBPASSWORD","");
 $conn = mysqli_connect(DBHOST,DBUSER,DBPASSWORD,DBNAME);
 if($conn){
-    echo "succesful connection to database";
+    // echo "succesful connection to database -->>" .DBNAME;    
     return true;
 }else{
-    echo "connection  to database failed";
+    // echo "connection  to database failed";
     return false;
 }
 ?>

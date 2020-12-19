@@ -1,10 +1,10 @@
 <?php
-    require "database/database.php";
+    require     ("database/database.php");
     $query = "SELECT * FROM posts";
-    $result = mysqli_query($connection,$query);
+    $result = mysqli_query($conn,$query);
     $posts = mysqli_fetch_all($result,MYSQLI_ASSOC);
     mysqli_free_result($result);
-    mysqli_close($connection);
+    mysqli_close($conn);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,10 +19,10 @@
 <body>
 </form>        
         <?php foreach($posts as $post) :?>
-            <div class="well">
+            <div class="bg-primary" style="height: max-content; width: 70%; margin: 20px auto;padding: 20px;">
                 <h1><?php echo $post['post_title'];?></h1>
-                <p><?php echo $post['post_description']; ?></p>
-                <small>created <?php echo $post['created_at']; ?></small>
+                <p><?php echo $post['post']; ?></p>
+                <small>created <?php echo $post['time']; ?></small>
             </div>
         <?php endforeach; ?>  
           
