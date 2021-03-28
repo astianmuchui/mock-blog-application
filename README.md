@@ -1,2 +1,2 @@
 # blogApp
-inserting into database and fetching from it
+A blog application that allows the user to post stuff
